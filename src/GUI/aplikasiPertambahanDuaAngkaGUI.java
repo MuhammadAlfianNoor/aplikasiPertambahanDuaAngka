@@ -128,6 +128,11 @@ public class aplikasiPertambahanDuaAngkaGUI extends javax.swing.JFrame {
         });
 
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         btnKeluar.setText("Keluar");
 
@@ -175,13 +180,21 @@ public class aplikasiPertambahanDuaAngkaGUI extends javax.swing.JFrame {
         if(pertamaTextField.getText().equals("") || keduaTextField.getText().equals("")){
             //PESAN input tidak boleh kosong
             JOptionPane.showConfirmDialog(null, "Input tidak boleh kosong");
-        } else { 
-        int angkaPertama=Integer.valueOf(pertamaTextField.getText());
-        int angkaKedua=Integer.valueOf(keduaTextField.getText());
-        int hasil=angkaPertama + angkaKedua;
-        hasilTextField.setText(Integer.toString(hasil));
+        } else {
+            int angkaPertama=Integer.valueOf(pertamaTextField.getText());
+            int angkaKedua=Integer.valueOf(keduaTextField.getText());
+            int hasil=angkaPertama + angkaKedua;
+            hasilTextField.setText(Integer.toString(hasil));
         }
     }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        pertamaTextField.setText("");
+        keduaTextField.setText(null);
+        hasilTextField.setText("");
+        pertamaTextField.requestFocus();
+    }//GEN-LAST:event_btnHapusActionPerformed
 
     /**
      * @param args the command line arguments
